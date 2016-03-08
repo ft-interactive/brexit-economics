@@ -1,0 +1,185 @@
+.core .o--if-js,
+.enhanced .o--if-no-js {
+    display: none !important;
+}
+    
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; 
+}
+
+body {
+  margin: 0; 
+}
+
+img {
+  border: 0; 
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+.key span{
+    margin-left: 20px;
+}
+
+button {
+  overflow: visible; 
+}
+
+button, select {
+  text-transform: none; 
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0; 
+}
+
+textarea { overflow: auto; }
+
+body {
+  background-color: #fff1e0;
+  margin: 0;
+  border: 0;
+  font-family: MetricWeb, sans-serif; 
+  color: #43423e;
+}
+
+.site-header {
+  padding: 18px 0 14px;
+  text-align: center;
+  border-bottom: 1px solid #e9decf; 
+}
+.site-header > a { opacity: 0.75; }
+.site-header > a:hover {  opacity: 1; }
+.masthead {  height: 18px; }
+
+.article__headline{
+    font-size:2.5em;
+    max-width:600px;
+    margin-left:auto;
+    margin-right:auto;
+    /*margin:auto;*/
+}
+
+.article__headline,
+.article__crosshead {
+    font-weight:500;
+    color:#43423e;
+    font-family: "FinancierDisplayWeb",serif;
+}
+
+
+.article {
+    margin:0 auto;
+    max-width:600px;
+    text-align:center;
+    padding-left:20px;
+    padding-right:20px;
+}
+
+.article p {
+    text-align:left;
+    margin-left:auto;
+    margin-right:auto;
+    max-width:600px;
+}
+
+.article p a {
+    color: #27757b;
+    border-bottom: 1px dotted #27757b;
+    text-decoration: none;
+}
+
+.article a:hover {
+    border-bottom: none;
+}
+
+/* additional styles */
+
+.selected{
+  background-color: #000;
+  color: #FFF;
+}
+
+.highlighted{
+  background-color: #F00;
+}
+
+.visualisation{
+  height:100px;
+}
+
+/* SVG styles */
+
+g.paper{
+  cursor: pointer;
+}
+
+.range-bar{
+  stroke-width:1;
+  stroke-opacity:0.2;
+  stroke:#000;
+}
+
+.gdp-marker-positive{
+  stroke-width:0;
+  fill:#df64a7; /*#b9b081*/
+}
+.gdp-marker-negative{
+  stroke-width:0;
+  fill:#b9b081;
+}
+
+.gdp-marker-neutral{
+  stroke-width:0;
+  fill:#ccc;
+}
+
+.gdp-outline-positive{
+  stroke-width:2;
+  stroke:#df64a7; /*#b9b081*/
+  fill:#FFF;
+}
+.gdp-outline-negative{
+  stroke-width:2;
+  stroke:#b9b081;
+  fill:#FFF;
+}
+
+.gdp-outline-neutral{
+  stroke-width:2;
+  stroke:#ccc;
+  fill:#FFF;
+}
+
+.outline.highlight{
+  stroke-width:4;
+  stroke:#000;
+}
+
+.outline.over{
+  stroke-width:4;
+}
+
+
+
+.tick text{
+  text-anchor: middle;
+  fill:#333;
+  font-size: 12px;
+}
+
+.tick line{
+  stroke-width:1px;
+  stroke:#333;
+}

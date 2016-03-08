@@ -1,0 +1,23 @@
+{
+  "name": "simple-ft-ig",
+  "version": "1.0.0",
+  "description": "A lightweight alternative to the full starter kit. Basically provides some basi HTML and css, builds js moudles but nothing more.",
+  "main": "index.js",
+  "scripts": {
+    "start": "watchify ./source/main.js -o ./bundle.js | srvlr",
+    "watch": "watchify ./source/main.js -o ./bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "node scripts/deploy.js"
+  },
+  "author": "tom.pearson@ft.com",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^11.2.0",
+    "d3-array": "^0.7.1",
+    "d3-dispatch": "^0.4.3",
+    "d3-request": "^0.4.4",
+    "d3-scale": "^0.6.2",
+    "d3-selection": "^0.7.0",
+    "watchify": "^3.4.0"
+  }
+}
