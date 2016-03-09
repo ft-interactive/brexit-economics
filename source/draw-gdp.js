@@ -9,7 +9,8 @@ var dispatcher = dispatch('selected');
 module.exports = {
 	draw:draw,
 	event:dispatcher,
-	selected:'a'
+	selected:'a',
+	selectPaper:highlight
 }
 
 function draw(parent, data){
@@ -95,10 +96,7 @@ function draw(parent, data){
 				over( d );
 			})
 			.on('mouseout', function(d){
-				console.log(this);
-				select(this).classed('over', function(datum){
-					
-				});
+				out( d );
 			})
 		.call(function(group){
 			group.append('rect')
@@ -141,7 +139,6 @@ function highlight(datum){
 			return datum.shortcode == d.shortcode;
 		});
 	dispatcher.call('selected', datum);
-	console.log('highlight', d);
 }
 
 function over(datum){
@@ -149,4 +146,8 @@ function over(datum){
 		.classed('over',function(d){
 			return datum.shortcode == d.shortcode;
 		});
+}
+
+function out(datum){
+	selectAll('.outline').classed('over', false);
 }
