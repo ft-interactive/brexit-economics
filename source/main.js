@@ -14,14 +14,19 @@ var papers;
 request.json(dataURL, function(d){
 	papers = data.add(d);
 
+
 	gdpViz.event.on('selected', function(){
 		var paperCode = this.shortcode;
 		select('#paper').call(details.paper, data.getPaper(paperCode));
 		select('#assumptions').call(details.assumptions, data.getPositions(paperCode))
 	})
 
+	var papersList = d.papers.sort(function(a,b){
+		return a.gdpimpact.central - b.gdpimpact.central;
+	});
+
 	select('.visualisation')
-		.call(gdpViz.draw, d.papers);
+		.call(gdpViz.draw, papersList);
 
 	//the default paper
 	gdpViz.selectPaper(data.getPaper('us'));

@@ -15,10 +15,6 @@ module.exports = {
 
 function draw(parent, data){
 
-	data.sort(function(a,b){
-		return a.gdpimpact.central - b.gdpimpact.central;
-	})
-
 	var bounds = parent.node().getBoundingClientRect();
 	var width = bounds.width;
 	var height = bounds.height;
