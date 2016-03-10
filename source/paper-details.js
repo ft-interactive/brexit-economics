@@ -30,5 +30,5 @@ function gdpString(impact){
 	if(impact.low != null){
 		return impact.low + ' &mdash; ' + impact.high + '%';
 	}
-	return impact.central;
+	return impact.central + '%';
 }
