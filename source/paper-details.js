@@ -17,13 +17,11 @@ function paperInfo(parent, paper){
 }
 
 function assumptionsInfo(parent, assumptions){
-	console.log('assumptions', assumptions.length);
 	var join = parent.selectAll('li')
 					.data(assumptions);
 	join.exit().remove();
 	join.enter().append('li')
 		.attr('class','assumption').text(function(d){
-			console.log(d);
 			return d.headline;
 		});
 }
