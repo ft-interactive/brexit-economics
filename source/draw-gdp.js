@@ -6,11 +6,14 @@ var select = require('d3-selection').select;
 var selectAll = require('d3-selection').selectAll;
 var dispatcher = dispatch('selected');
 
+var selectedPaper = undefined;
+
 module.exports = {
-	draw:draw,
-	event:dispatcher,
-	selected:'a',
-	selectPaper:highlight
+	draw: draw,
+	event: dispatcher,
+	selected: 'a',
+	selectPaper: highlight,
+	selected: selected
 }
 
 function draw(parent, data){
@@ -18,7 +21,7 @@ function draw(parent, data){
 	var bounds = parent.node().getBoundingClientRect();
 	var width = bounds.width;
 	var height = bounds.height;
-	var margin = {top:10,left:10, bottom:10, right:10 };
+	var margin = {top:10, left:10, bottom:10, right:10 };
 	var centerLine = 20;
 	var smallTick  = 5;
 	var largeTick = 10;
@@ -127,6 +130,10 @@ function draw(parent, data){
 					.attr('y', -5)
 					.attr('transform', 'rotate(45)');
 		});
+}
+
+function selected(){
+	return select('.highlight').datum();
 }
 
 function highlight(datum){

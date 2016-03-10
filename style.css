@@ -104,6 +104,75 @@ body {
     border-bottom: none;
 }
 
+/*bylines*/
+h6{
+    max-width: 600px;
+    margin: 0 auto 10px;
+    color: #9e2f50;
+    font-family: FinancierDisplayWeb,Georgia,serif;
+    font-weight: 200;
+    font-style: italic;
+    font-size: .95em;
+}
+
+.timestamp {
+    color: #8b572a;
+    font-family: MetricWeb,sans-serif;
+    font-size: 12px;
+    font-style: normal;
+}
+
+/* share links */
+
+.social-icon-wrapper {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: space-around;
+    -ms-flex-line-pack: distribute;
+    align-content: space-around;
+}
+
+.share-links {
+    cursor: pointer;
+}
+
+.share-links>ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.share-links__link {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    background-size: 40px 40px;
+}
+.share-links li {
+  display: inline-block;
+}
+
+.share-links__link>span{
+  display: none;
+}
+
+.share-links__link--twitter {
+    background-image: url(images/twitter_icon.svg);
+}
+
+.share-links__link--facebook {
+    background-image: url(images/facebook_icon.svg);
+}
+
+.share-links__link--linked-in {
+    background-image: url(images/linkedin_icon.svg);
+}
+
+
 /* additional styles */
 
 .selected{
