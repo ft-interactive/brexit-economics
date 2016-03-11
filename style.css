@@ -94,7 +94,7 @@ body {
     max-width:600px;
 }
 
-.article p a {
+p a {
     color: #27757b;
     border-bottom: 1px dotted #27757b;
     text-decoration: none;
@@ -175,10 +175,26 @@ h6{
 
 /* additional styles */
 
+.nav-bar{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: space-around;
+  -ms-flex-line-pack: distribute;
+  align-content: space-around;
+}
+
 #paper-gdp{
   display: inline-block;
   width:200px;
   font-size: 35px;
+}
+
+#paper-title{
+  font-style: italic;
 }
 
 .selected{

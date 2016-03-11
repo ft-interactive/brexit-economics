@@ -5,8 +5,13 @@ module.exports = {
 };
 
 function paperInfo(parent, paper){
+
+
+	parent.select('#paper-name')
+		.html( paper.name );
+
 	parent.select('#paper-title')
-		.html( paper.title );
+		.html( '<p><a href="' + paper.link + '">' + paper.title + ' ('+paper.year+')</a></p>');
 	
 	parent.select('#paper-gdp')
 		.html( gdpString( paper.gdpimpact ) );
