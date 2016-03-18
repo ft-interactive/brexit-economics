@@ -103,7 +103,38 @@ function draw(parent, data){
 			.on('mouseout', function(d){
 				out( d );
 			})
-		.call(function(group){
+		.call( circlePoint );
+
+	function circlePoint(group){
+		group.append('circle')
+			.attr('r',10)
+			.attr('class',function(d){
+						if(d.gdpimpact.central == 0){
+							return 'marker gdp-marker-neutral';
+						}
+						if(d.gdpimpact.central > 0){
+							return 'marker gdp-marker-positive';
+						}
+						return 'marker gdp-marker-negative';
+					})
+			.attr('opacity', 0.3)
+
+		group.append('circle')
+			.attr('r',10)
+			.attr('class',function(d){
+						if(d.gdpimpact.central == 0){
+							return 'outline gdp-outline-neutral';
+						}
+						if(d.gdpimpact.central > 0){
+							return 'outline gdp-outline-positive';
+						}
+						return 'outline gdp-outline-negative';
+					})
+
+
+	}
+
+	function rectanglePoint(group){
 			group.append('rect')
 					.attr('class',function(d){
 						if(d.gdpimpact.central == 0){
@@ -135,8 +166,11 @@ function draw(parent, data){
 					.attr('x', -5)
 					.attr('y', -5)
 					.attr('transform', 'rotate(45)');
-		});
+		}
+
 }
+
+
 
 function selected(){
 	return select('.highlight').datum();
