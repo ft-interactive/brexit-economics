@@ -11,7 +11,6 @@ var selectedPaper = undefined;
 module.exports = {
 	draw: draw,
 	event: dispatcher,
-	selected: 'a',
 	selectPaper: highlight,
 	selected: selected
 }
@@ -25,6 +24,7 @@ function draw(parent, data){
 	var centerLine = 20;
 	var smallTick  = 5;
 	var largeTick = 10;
+	var zeroTick = 30;
 
 	var plot = parent.append('svg')
 		.attr('width', width)
@@ -66,16 +66,22 @@ function draw(parent, data){
 				.attr('x1',0)
 				.attr('x2',0)
 				.attr('y1',function(d){
-					if((d)%1==0){
-						return centerLine-largeTick/2;
-					}
-					return centerLine-smallTick/2;
+					var tickHalf = smallTick/2;
+					
+					if(d==0){ tickHalf = zeroTick/2; }
+
+					else if((d)%1==0){ tickHalf = largeTick/2; }
+
+					return centerLine - tickHalf;
 				})
 				.attr('y2',function(d){
-					if((d)%1==0){
-						return centerLine+largeTick/2;
-					}
-					return centerLine+smallTick/2;
+					var tickHalf = smallTick/2;
+					
+					if(d==0){ tickHalf = zeroTick/2; }
+
+					else if((d)%1==0){ tickHalf = largeTick/2; }
+
+					return centerLine + tickHalf;
 				});
 		})
 
@@ -97,7 +103,38 @@ function draw(parent, data){
 			.on('mouseout', function(d){
 				out( d );
 			})
-		.call(function(group){
+		.call( circlePoint );
+
+	function circlePoint(group){
+		group.append('circle')
+			.attr('r',10)
+			.attr('class',function(d){
+						if(d.gdpimpact.central == 0){
+							return 'marker gdp-marker-neutral';
+						}
+						if(d.gdpimpact.central > 0){
+							return 'marker gdp-marker-positive';
+						}
+						return 'marker gdp-marker-negative';
+					})
+			.attr('opacity', 0.3)
+
+		group.append('circle')
+			.attr('r',10)
+			.attr('class',function(d){
+						if(d.gdpimpact.central == 0){
+							return 'outline gdp-outline-neutral';
+						}
+						if(d.gdpimpact.central > 0){
+							return 'outline gdp-outline-positive';
+						}
+						return 'outline gdp-outline-negative';
+					})
+
+
+	}
+
+	function rectanglePoint(group){
 			group.append('rect')
 					.attr('class',function(d){
 						if(d.gdpimpact.central == 0){
@@ -129,8 +166,11 @@ function draw(parent, data){
 					.attr('x', -5)
 					.attr('y', -5)
 					.attr('transform', 'rotate(45)');
-		});
+		}
+
 }
+
+
 
 function selected(){
 	return select('.highlight').datum();

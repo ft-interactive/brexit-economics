@@ -248,18 +248,18 @@ g.paper{
 .gdp-outline-positive{
   stroke-width:2;
   stroke:#df64a7; /*#b9b081*/
-  fill:#FFF;
+  fill:none;
 }
 .gdp-outline-negative{
   stroke-width:2;
   stroke:#b9b081;
-  fill:#FFF;
+  fill:none;
 }
 
 .gdp-outline-neutral{
   stroke-width:2;
   stroke:#ccc;
-  fill:#FFF;
+  fill:none;
 }
 
 .outline.highlight{
