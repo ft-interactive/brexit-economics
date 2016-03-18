@@ -11,7 +11,6 @@ var selectedPaper = undefined;
 module.exports = {
 	draw: draw,
 	event: dispatcher,
-	selected: 'a',
 	selectPaper: highlight,
 	selected: selected
 }
@@ -25,6 +24,7 @@ function draw(parent, data){
 	var centerLine = 20;
 	var smallTick  = 5;
 	var largeTick = 10;
+	var zeroTick = 30;
 
 	var plot = parent.append('svg')
 		.attr('width', width)
@@ -66,16 +66,22 @@ function draw(parent, data){
 				.attr('x1',0)
 				.attr('x2',0)
 				.attr('y1',function(d){
-					if((d)%1==0){
-						return centerLine-largeTick/2;
-					}
-					return centerLine-smallTick/2;
+					var tickHalf = smallTick/2;
+					
+					if(d==0){ tickHalf = zeroTick/2; }
+
+					else if((d)%1==0){ tickHalf = largeTick/2; }
+
+					return centerLine - tickHalf;
 				})
 				.attr('y2',function(d){
-					if((d)%1==0){
-						return centerLine+largeTick/2;
-					}
-					return centerLine+smallTick/2;
+					var tickHalf = smallTick/2;
+					
+					if(d==0){ tickHalf = zeroTick/2; }
+
+					else if((d)%1==0){ tickHalf = largeTick/2; }
+
+					return centerLine + tickHalf;
 				});
 		})
 
