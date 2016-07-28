@@ -13,3 +13,8 @@ Assumes you have <a href="https://www.npmjs.com/package/srvlr">srvlr</a> install
 `npm run start` starts the watch process and a srvlr
 
 `npm run deploy` copies all the relevant files for  deployment to a directory, includes the contents of 'images' and 'data' directories
+
+## Licence
+This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT). 
+
+Please note the MIT licence includes only the software, and does not cover any FT content made available using the software, which is copyright &copy; The Financial Times Limited, all rights reserved. For more information about re-publishing FT content, please contact our [syndication department](http://syndication.ft.com/).
